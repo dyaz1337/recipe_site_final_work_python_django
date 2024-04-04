@@ -68,10 +68,6 @@ class UpdatePage(DataMixin, UpdateView):
     title_page = 'Редактирование рецепта'
 
 
-def contact(request):
-    return HttpResponse("Обратная связь")
-
-
 def login(request):
     return HttpResponse("Авторизация")
 
