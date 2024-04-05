@@ -1,34 +1,85 @@
-## Для установки Django выполним команду:
-- pip install django
+# Проект “Сайт рецептов” на Django
 
-## Создание первого проекта
+Данный проект является реализацией итоговой аттестации по программе
+“Вебразработка на Python” и представляет собой веб-приложение
+для хранения и просмотра рецептов. 
+Пользователи могут добавлять, просматривать, редактировать и удалять рецепты, 
+а также просматривать рецепты других пользователей.
 
-- django-admin startproject recipes
+## Установка
+1. Клонируйте репозиторий на ваше устройство:
 
-*** Далее переходим в каталог проекта командой:
-- cd recipes
+    ```bash
+    git clone [https://github.com/dyaz1337/recipe_site_final_work_python_django]
+    ```
 
-*** Запускаем проект (остановить Ctrl+C):
-- python manage.py runserver
+2. Установите зависимости:
 
-*** Создание первого приложения в Django представляет собой создание
-отдельного модуля, который будет содержать логику и шаблоны для определенной функциональности.
- 
-- python manage.py startapp recipesapp
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-*** Добавление приложения в проект
-Чтобы добавить созданное приложение в проект, необходимо указать его в настройках проекта (файл settings.py). Для этого нужно добавить название приложения в список INSTALLED_APPS.
-Внимание! Хорошей привычкой будет делать два действия сразу друг за другом. А именно создавать приложение через startapp и сразу добавляет его в список INSTALLED_APPS.
-Учитывая добавленные по умолчанию приложения, константа 
-- INSTALLED_APPS будет выглядет так: INSTALLED_APPS = [ 'django.contrib.admin', 'django.contrib.auth', 'django.contrib.contenttypes', 'django.contrib.sessions', 'django.contrib.messages', 'django.contrib.staticfiles', 'recipesapp', ]
+3. Создайте базу данных MySQL и настройте соединение с базой данных в файле settings.py:
 
-*** Далее добавим админку сайта 
-- в начале надо применить миграции
-- python manage.py migrate  
-- далее создаем суперпользователя
-- python manage.py createsuperuser 
-- Имя пользователя (leave blank to use 'misha'): user
-* Адрес электронной почты: user@mail.ru
-* Password: 
-* Password (again):
-* Superuser created successfully.
+    ```python
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'database_name',
+            'USER': 'username',
+            'PASSWORD': 'password',
+            'HOST': 'localhost',
+            'PORT': '3306',
+        }
+    }
+   ```
+   
+   Или можете раскомментировать следующие строки для работы с sqlite3 (и удалить строки ниже до блока `# Password validation`):
+   ```python
+   DATABASES = {
+     'default': {
+         'ENGINE': 'django.db.backends.sqlite3',
+         'NAME': BASE_DIR / 'db.sqlite3',
+     }
+   }
+   ```
+   
+4. Примените миграции базы данных:
+
+    ```bash
+    python manage.py migrate
+    ```
+
+5. Для создания суперпользователя:
+
+    ```bash
+    python manage.py createsuperuser
+    ```
+
+6. Запустите сервер разработки Django:
+
+    ```bash
+    python manage.py runserver
+    ```
+
+7. Откройте ваш веб-браузер и перейдите по адресу http://localhost:8000/, чтобы начать использование приложения.
+
+## Функции
+
+- Регистрация и аутентификация пользователей
+- Просмотр главной страницы с 5 случайными рецептами кратко
+- Просмотр подробной информации о рецепте
+- Добавление, редактирование и удаление рецептов
+- Возможность добавления изображения для рецепта
+- Категоризация рецептов
+
+## Технологии
+
+- Python
+- Django - фреймворк для разработки веб-приложений
+- MySQL - СУБД для хранения данных
+- HTML/CSS - для создания пользовательского интерфейса
+
+## Проект развернут по адресу : 
+
+[andybook.pythonanywhere.com]([https://andybook.pythonanywhere.com/](https://dyaz.pythonanywhere.com/))
