@@ -22,15 +22,17 @@
 3. Создайте базу данных MySQL и настройте соединение с базой данных в файле settings.py:
 
     ```python
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'database_name',
-            'USER': 'username',
-            'PASSWORD': 'password',
-            'HOST': 'localhost',
-            'PORT': '3306',
-        }
+   DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'dyaz$default',
+        'USER': 'dyaz',
+        'PASSWORD': os.getenv('MYSQL_PASSWORD'),
+        'HOST': 'dyaz.mysql.pythonanywhere-services.com',
+        'OPTIONS': {
+            'init_command': "SET NAMES 'utf8mb4';SET sql_mode='STRICT_TRANS_TABLES'",
+            'charset': 'utf8mb4',
+        },
     }
    ```
    
@@ -82,4 +84,4 @@
 
 ## Проект развернут по адресу : 
 
-[andybook.pythonanywhere.com]([https://andybook.pythonanywhere.com/](https://dyaz.pythonanywhere.com/))
+[https://dyaz.pythonanywhere.com/]
