@@ -25,10 +25,10 @@
    DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'dyaz$default',
-        'USER': 'dyaz',
+        'NAME': 'your_name$default',
+        'USER': 'your_name',
         'PASSWORD': os.getenv('MYSQL_PASSWORD'),
-        'HOST': 'dyaz.mysql.pythonanywhere-services.com',
+        'HOST': 'your_name.mysql.pythonanywhere-services.com',
         'OPTIONS': {
             'init_command': "SET NAMES 'utf8mb4';SET sql_mode='STRICT_TRANS_TABLES'",
             'charset': 'utf8mb4',
